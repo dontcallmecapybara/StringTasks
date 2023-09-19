@@ -3,17 +3,20 @@
 Дан текст. Необходимо определить максимальное количество последовательных одинаковых символов в нём.
 '''
 
-text = str(input())
+text_input = str(input())
+
+text_input = text_input.lower()
+text = list(text_input)
 
 x = 1
 y = 0
 
-for i in text:
-    if i+1 == i:
+for i in range(len(text_input) - 1):
+    if text[i+1] == text[i]:
         x += 1
-    if i+1 != i:
-        if x > y:
+    else:
+        if y < x:
             y = x
-        x = 0
+        x = 1
 
 print(y)
