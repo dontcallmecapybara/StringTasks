@@ -14,8 +14,8 @@ for i in range(len(text_almost_ready)):
         text.append(text_almost_ready[i])
 
 a = []
-for i in range(len(text)):
-    if text[i] not in a:
-        a.append(text[i])
+for j in range(len(text)):
+    if text[j] not in a:
+        a.append(text[j])
 
 print(len(a))
