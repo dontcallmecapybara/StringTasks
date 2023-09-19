@@ -9,9 +9,9 @@ x = 0
 y = 0
 
 for i in text:
-    if i == '\s':
+    if i == ' ' or i == '\t' or i == '\n' or i == '\r' or i == '\f' or i == '\v':
         x += 1
-    if i != ' ':
+    else:
         if x > y:
             y = x
         x = 0
