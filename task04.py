@@ -10,7 +10,7 @@ text_input = text_input.lower()
 text = list(text_input)
 text.sort()
 
-for i in range (len(text) - 3):
+for i in range(len(text) - 3):
     if text[i] == text[i+1] and text[i] == text[i+2]:
         x = text[i]
     else:
