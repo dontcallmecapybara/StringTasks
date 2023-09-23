@@ -8,15 +8,12 @@ text_input = str(input())
 
 text_input = text_input.lower()
 text = list(text_input)
+text.sort()
 
-x = 0
-for i in range(len(text)-1):
-    if text[i] == text[i+1]:
-        x += 1
-    elif x == 3:
-        word = text[i]
-        break
+for i in range (len(text) - 3):
+    if text[i] == text[i+1] and text[i] == text[i+2]:
+        x = text[i]
     else:
-        x = 0
+        continue
 
-print(text[i])
+print(x)
