@@ -3,22 +3,27 @@
 Дано предложение. В нем только два слова одинаковые. Найти эти слова.
 '''
 
+text = list(input().lower())
+unique_words = set()
 
-def find_duplicate_words(text):
-    words = text.lower().split()
-    duplicates = []
-    for word in words:
-        if words.count(word) > 1 and word not in duplicates:
-            duplicates.append(word)
-    return duplicates
+new_text = []
+for i in range(len(text)):
+    if text[i].isalpha():
+        new_text.append(text[i])
+    elif text[i] == ' ':
+        new_text.append(' ')
 
+text = ''
+for j in range(len(new_text)):
+    text += new_text[j]
+text = text.split()
 
-text = str(input())
-words = text.lower().split()
+for f in text:
+    unique_words.add(f)
 
-copies = []
-for i in words:
-    if words.count(i) == 2 and i not in copies:
-        copies.append(i)
+duplicate_words = []
+for word in unique_words:
+    if text.count(word) == 2:
+        duplicate_words.append(word)
 
-print(copies)
+print('Word is ' + '"' + duplicate_words[0] + '".')
