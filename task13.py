@@ -7,3 +7,19 @@
 Ввод номеров должен завершить тогда, когда будет введен "счастливый" билет.
 Программа должна вывести его порядковый номер. Счет начинается с 1.
 '''
+
+def funny_ticket(ticket):
+
+    ticket = [int(i) for i in ticket]
+    if len(ticket) % 2 == 0:
+        n = len(ticket) // 2
+        if sum(ticket[:n]) == sum(ticket[n:]):
+            return 'You have a lucky ticket :)'
+
+    return 'You have not a lucky ticket :('
+
+
+ticket = input()
+lucky_or_not = funny_ticket(ticket)
+
+print(lucky_or_not)
