@@ -30,3 +30,44 @@ a
 тигр
 Победа!
 '''
+
+def game():
+    global res, letter
+
+    if res.find('*') != -1:
+        choice = int(input('\nБуква или слово (0 - буква, 1 - слово)?'))
+        if choice == 0:
+            letter = input('Введите букву: ')
+            if len(letter) != 1:
+                print('Нужно ввести только одну букву.')
+                print(res)
+                game()
+            else:
+                if letter in answer:
+                    res = res[:answer.find(letter)] + letter + res[answer.find(letter) + 1:]
+                    print(res)
+                else:
+                    print(res)
+                game()
+        elif choice == 1:
+            word = input('Введите слово: ')
+            if word == answer:
+                res = answer
+            else:
+                print('Неверное слово! Попробуй ещё раз.')
+                print(res)
+            game()
+    else:
+        print('\nПобеда!')
+
+
+answer = input('Загадайте слово: ')
+answer_tip = input('Дайте подсказку к загаданному слову: ')
+print(answer_tip)
+print(answer)
+print('\n' * 25)
+
+print(answer_tip)
+res = '*' * len(answer)
+print(res)
+game()
