@@ -31,3 +31,36 @@
 Быков: 4 Коров: 0
 Победа
 '''
+
+def game():
+    attempts = 0
+    while True:
+        number = input('Введите ваш вариант: ')
+        if not number.isdigit() and len(number) == 4:
+            print('Введите четырехзначное число.')
+
+        male_cow, female_cow = how_much(answer, number)
+        attempts += 1
+
+        if male_cow == 4:
+            print(f'Поздравляем! Вы угадали число {answer} за {attempts} попыток.')
+            break
+        else:
+            print(f'Быки: {male_cow}, Коровы: {female_cow}')
+
+def how_much(answer, number):
+    male_cow = female_cow = 0
+    for i in range(4):
+        if number[i] == answer[i]:
+            male_cow += 1
+        elif number[i] in answer:
+            female_cow += 1
+    return male_cow, female_cow
+
+
+answer = input('Загадайте четырехзначное число: ')
+if len(answer) != 4 or answer.isdigit() == False:
+    print('Вы ввели не четырехзначное число.')
+else:
+    print('\n' * 25)
+    game()
